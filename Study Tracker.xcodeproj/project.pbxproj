@@ -8,22 +8,24 @@
 
 /* Begin PBXBuildFile section */
 		21AD3B651ED287A800EF0C91 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21AD3B641ED287A800EF0C91 /* AppDelegate.swift */; };
-		21AD3B671ED287A800EF0C91 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21AD3B661ED287A800EF0C91 /* ViewController.swift */; };
 		21AD3B6A1ED287A800EF0C91 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 21AD3B681ED287A800EF0C91 /* Main.storyboard */; };
 		21AD3B6D1ED287A800EF0C91 /* Study_Tracker.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 21AD3B6B1ED287A800EF0C91 /* Study_Tracker.xcdatamodeld */; };
 		21AD3B6F1ED287A800EF0C91 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 21AD3B6E1ED287A800EF0C91 /* Assets.xcassets */; };
 		21AD3B721ED287A800EF0C91 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 21AD3B701ED287A800EF0C91 /* LaunchScreen.storyboard */; };
+		21AD3B7A1ED292D300EF0C91 /* StudyTrackerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21AD3B791ED292D300EF0C91 /* StudyTrackerViewController.swift */; };
+		21AD3B7C1ED3A32E00EF0C91 /* ChecklistItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21AD3B7B1ED3A32E00EF0C91 /* ChecklistItem.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		21AD3B611ED287A800EF0C91 /* Study Tracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Study Tracker.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		21AD3B641ED287A800EF0C91 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		21AD3B661ED287A800EF0C91 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		21AD3B691ED287A800EF0C91 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		21AD3B6C1ED287A800EF0C91 /* Study_Tracker.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Study_Tracker.xcdatamodel; sourceTree = "<group>"; };
 		21AD3B6E1ED287A800EF0C91 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		21AD3B711ED287A800EF0C91 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		21AD3B731ED287A800EF0C91 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		21AD3B791ED292D300EF0C91 /* StudyTrackerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StudyTrackerViewController.swift; path = ../StudyTrackerViewController.swift; sourceTree = "<group>"; };
+		21AD3B7B1ED3A32E00EF0C91 /* ChecklistItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChecklistItem.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,13 +58,14 @@
 		21AD3B631ED287A800EF0C91 /* Study Tracker */ = {
 			isa = PBXGroup;
 			children = (
+				21AD3B791ED292D300EF0C91 /* StudyTrackerViewController.swift */,
 				21AD3B641ED287A800EF0C91 /* AppDelegate.swift */,
-				21AD3B661ED287A800EF0C91 /* ViewController.swift */,
 				21AD3B681ED287A800EF0C91 /* Main.storyboard */,
 				21AD3B6E1ED287A800EF0C91 /* Assets.xcassets */,
 				21AD3B701ED287A800EF0C91 /* LaunchScreen.storyboard */,
 				21AD3B731ED287A800EF0C91 /* Info.plist */,
 				21AD3B6B1ED287A800EF0C91 /* Study_Tracker.xcdatamodeld */,
+				21AD3B7B1ED3A32E00EF0C91 /* ChecklistItem.swift */,
 			);
 			path = "Study Tracker";
 			sourceTree = "<group>";
@@ -140,8 +143,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				21AD3B6D1ED287A800EF0C91 /* Study_Tracker.xcdatamodeld in Sources */,
-				21AD3B671ED287A800EF0C91 /* ViewController.swift in Sources */,
+				21AD3B7A1ED292D300EF0C91 /* StudyTrackerViewController.swift in Sources */,
 				21AD3B651ED287A800EF0C91 /* AppDelegate.swift in Sources */,
+				21AD3B7C1ED3A32E00EF0C91 /* ChecklistItem.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -271,6 +275,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.Unitec.Study-Tracker";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -283,6 +288,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.Unitec.Study-Tracker";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};
