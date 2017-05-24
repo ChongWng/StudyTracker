@@ -8,7 +8,7 @@
 
 import UIKit
 
-class StudyTrackerViewController: UITableViewController {
+class StudyTrackerViewController: UITableViewController, DueDateDetailViewControllerDelegate {
     
     // This declares that items will hold an array of ChecklistItem objects
     // but it does not actually create that array.    
@@ -24,28 +24,28 @@ class StudyTrackerViewController: UITableViewController {
         // This instantiates a new ChecklistItem object. Notice the ().
         let row0item = ChecklistItem()
         // Give values to the data items inside the new ChecklistItem object.
-        row0item.text = "Walk the dog"
+        row0item.text = "7436 Assignment1 Check point1"
         row0item.checked = false
         // This adds the ChecklistItem object into the items array.
         items.append(row0item)
         
         let row1item = ChecklistItem()
-        row1item.text = "Brush my teeth"
+        row1item.text = "7420 Assignment1 Tutorial1"
         row1item.checked = true
         items.append(row1item)
         
         let row2item = ChecklistItem()
-        row2item.text = "Learn iOS development"
+        row2item.text = "7421 Assignment1 Idea Demenstration"
         row2item.checked = true
         items.append(row2item)
         
         let row3item = ChecklistItem()
-        row3item.text = "Soccer practice"
+        row3item.text = "7444 Class Exercise"
         row3item.checked = false
         items.append(row3item)
         
         let row4item = ChecklistItem()
-        row4item.text = "Eat ice cream"
+        row4item.text = "8038 Group Discussion"
         row4item.checked = true
         items.append(row4item)
         
@@ -109,15 +109,25 @@ class StudyTrackerViewController: UITableViewController {
         
         tableView.deselectRow(at: indexPath, animated: true)
     }
+    
+    //When the “commitEditingStyle” method is present in your view controller (it comes from the table view data source), the table view will automatically enable swipe-to- delete. 
+    override func tableView(_ tableView: UITableView,
+                            commit editingStyle: UITableViewCellEditingStyle,
+                            forRowAt indexPath: IndexPath) {
+        items.remove(at: indexPath.row)
+        let indexPaths = [indexPath]
+        tableView.deleteRows(at: indexPaths, with: .automatic)
+    }
  
     //configure the checkmark to match with the state
     func configureCheckmark(for cell: UITableViewCell,
                             with item: ChecklistItem) {
+        let label = cell.viewWithTag(1001) as! UILabel
         
         if item.checked {
-            cell.accessoryType = .checkmark
+            label.text = "√"
         } else {
-            cell.accessoryType = .none
+            label.text = ""
         }
     }
     
@@ -129,50 +139,48 @@ class StudyTrackerViewController: UITableViewController {
     }
 
 
-
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
+    func dueDateDetailViewControllerDidCancel(_ controller: DueDateDetailViewController) {
+        dismiss(animated: true, completion: nil)
     }
-    */
 
-    /*
-    // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
+    func dueDateDetailViewController(_ controller: DueDateDetailViewController, didFinishAdding item: ChecklistItem) {
+        let newRowIndex = items.count
+        items.append(item)
+        
+        let indexPath = IndexPath(row: newRowIndex, section: 0)
+        let indexPaths = [indexPath]
+        tableView.insertRows(at: indexPaths, with: .automatic)
+        dismiss(animated: true, completion: nil)
     }
-    */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
+    
+    func dueDateDetailViewController(_controller: DueDateDetailViewController, didFinishEditing item: ChecklistItem) {
+        if let index = items.index(of: item) {
+            let indexPath = IndexPath(row: index, section: 0)
+            if let cell = tableView.cellForRow(at: indexPath) {
+                configureText(for: cell, with: item)
+            }
+        }
+        dismiss(animated: true, completion: nil)
     }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    
+        if segue.identifier == "AddDueDate" {
+            let navigationController = segue.destination as! UINavigationController
+            let controller = navigationController.topViewController as! DueDateDetailViewController
+            controller.delegate = self
+            
+        } else if segue.identifier == "EditDueDate"{
+            let navigationController = segue.destination as! UINavigationController
+            let controller = navigationController.topViewController as! DueDateDetailViewController
+            controller.delegate = self
+            
+            //data passing from A=>B
+            //A puts an object into this property right before it makes screen B visible, usually in prepare(for:sender:).
+            //then B simply make a new instance variable in view controller.
+            if let indexPath = tableView.indexPath( for: sender as! UITableViewCell) {
+                controller.itemToEdit = items[indexPath.row]
+            }
+        }
     }
-    */
-
 }

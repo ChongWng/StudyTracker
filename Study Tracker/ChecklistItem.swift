@@ -9,7 +9,7 @@
 import Foundation
 
 //the absolute minimum amount of stuff you need in order to make a new object
-class ChecklistItem {
+class ChecklistItem: NSObject {
     var text = ""
     var checked = false
     
