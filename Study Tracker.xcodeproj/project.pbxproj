@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		215005271ED6CC9600FCEBE6 /* AllCoursesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 215005261ED6CC9600FCEBE6 /* AllCoursesViewController.swift */; };
+		215005291ED6E35E00FCEBE6 /* Course.swift in Sources */ = {isa = PBXBuildFile; fileRef = 215005281ED6E35E00FCEBE6 /* Course.swift */; };
+		2150052B1ED7D45A00FCEBE6 /* CourseDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2150052A1ED7D45900FCEBE6 /* CourseDetailViewController.swift */; };
 		21AD3B651ED287A800EF0C91 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21AD3B641ED287A800EF0C91 /* AppDelegate.swift */; };
 		21AD3B6A1ED287A800EF0C91 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 21AD3B681ED287A800EF0C91 /* Main.storyboard */; };
 		21AD3B6D1ED287A800EF0C91 /* Study_Tracker.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 21AD3B6B1ED287A800EF0C91 /* Study_Tracker.xcdatamodeld */; };
@@ -18,6 +21,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		215005261ED6CC9600FCEBE6 /* AllCoursesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AllCoursesViewController.swift; sourceTree = "<group>"; };
+		215005281ED6E35E00FCEBE6 /* Course.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Course.swift; sourceTree = "<group>"; };
+		2150052A1ED7D45900FCEBE6 /* CourseDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CourseDetailViewController.swift; sourceTree = "<group>"; };
 		21AD3B611ED287A800EF0C91 /* Study Tracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Study Tracker.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		21AD3B641ED287A800EF0C91 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		21AD3B691ED287A800EF0C91 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -25,7 +31,7 @@
 		21AD3B6E1ED287A800EF0C91 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		21AD3B711ED287A800EF0C91 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		21AD3B731ED287A800EF0C91 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		21AD3B791ED292D300EF0C91 /* StudyTrackerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; name = StudyTrackerViewController.swift; path = ../StudyTrackerViewController.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		21AD3B791ED292D300EF0C91 /* StudyTrackerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = StudyTrackerViewController.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		21AD3B7B1ED3A32E00EF0C91 /* ChecklistItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChecklistItem.swift; sourceTree = "<group>"; };
 		21AD3B7D1ED431EB00EF0C91 /* DueDateDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = DueDateDetailViewController.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 /* End PBXFileReference section */
@@ -69,6 +75,9 @@
 				21AD3B6B1ED287A800EF0C91 /* Study_Tracker.xcdatamodeld */,
 				21AD3B7B1ED3A32E00EF0C91 /* ChecklistItem.swift */,
 				21AD3B7D1ED431EB00EF0C91 /* DueDateDetailViewController.swift */,
+				215005261ED6CC9600FCEBE6 /* AllCoursesViewController.swift */,
+				215005281ED6E35E00FCEBE6 /* Course.swift */,
+				2150052A1ED7D45900FCEBE6 /* CourseDetailViewController.swift */,
 			);
 			path = "Study Tracker";
 			sourceTree = "<group>";
@@ -145,11 +154,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				215005291ED6E35E00FCEBE6 /* Course.swift in Sources */,
 				21AD3B7E1ED431EB00EF0C91 /* DueDateDetailViewController.swift in Sources */,
 				21AD3B6D1ED287A800EF0C91 /* Study_Tracker.xcdatamodeld in Sources */,
 				21AD3B7A1ED292D300EF0C91 /* StudyTrackerViewController.swift in Sources */,
+				2150052B1ED7D45A00FCEBE6 /* CourseDetailViewController.swift in Sources */,
 				21AD3B651ED287A800EF0C91 /* AppDelegate.swift in Sources */,
 				21AD3B7C1ED3A32E00EF0C91 /* ChecklistItem.swift in Sources */,
+				215005271ED6CC9600FCEBE6 /* AllCoursesViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

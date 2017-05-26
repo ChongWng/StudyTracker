@@ -1,5 +1,6 @@
 //
 //  DueDateDetailViewController.swift
+//  View for adding and editing due date items
 //  Study Tracker
 //
 //  Created by wang on 23/05/17.
@@ -14,7 +15,8 @@ protocol DueDateDetailViewControllerDelegate: class {
     func dueDateDetailViewController(_ controller: DueDateDetailViewController,
                                didFinishAdding item: ChecklistItem)
 
-    func dueDateDetailViewController(_controller: DueDateDetailViewController, didFinishEditing item: ChecklistItem)
+    func dueDateDetailViewController(_ controller: DueDateDetailViewController,
+                                     didFinishEditing item: ChecklistItem)
 }
 
 class DueDateDetailViewController: UITableViewController, UITextFieldDelegate {
@@ -24,36 +26,36 @@ class DueDateDetailViewController: UITableViewController, UITextFieldDelegate {
     var itemToEdit: ChecklistItem?
     let itemToEditTitle = "Edit Due Date Title"
     weak var delegate: DueDateDetailViewControllerDelegate?
+
     
     //called by UIKit when the view controller is loaded from the storyboard, but before it is shown on the screen
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        //make a instance vairable to receive data from A
-        //if the optional has no value – i.e. it is nil – then the code inside the if let block is skipped over.
+        //make a instance vairable to receive data from previous view
+        //if let: if no value (nil), then the code inside the if let block is skipped over.
         if let item = itemToEdit {
             
-            //when itemToEdit is not nil, you change the title in the navigation bar to “Edit Item”.
+            //when itemToEdit is not nil, change the title in the navigation bar to “Edit Item”.
             title = itemToEditTitle
             newDueDateTitle.text = item.text
             doneBarButton.isEnabled = true
         }
     }
     
-    //the keyboard automatically appeared once the screen opens
-    //on the Simulator. Press ⌘+K to bring it up.
-    //The keyboard will always appear when you run the app on an actual device
+    //function to make the keyboard automatically appears once the screen opens
+    //on the Simulator, Press ⌘+K to bring it up.
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         newDueDateTitle.becomeFirstResponder()
     }
     
     
-    
+    //function after adding or editing
     @IBAction func done() {
         if let item = itemToEdit {
             item.text = newDueDateTitle.text!
-            delegate?.dueDateDetailViewController(_controller: self, didFinishEditing: item)
+            delegate?.dueDateDetailViewController(self, didFinishEditing: item)
         } else {
             let item = ChecklistItem()
             item.text = newDueDateTitle.text!
@@ -62,18 +64,20 @@ class DueDateDetailViewController: UITableViewController, UITextFieldDelegate {
         }
     }
  
+    //function cancel
     @IBAction func cancel() {
         delegate?.dueDateDetailViewControllerDidCancel(self)
     }
     
-    //there is a "?" after the return type, so nil is allowed to return
+    //a "?" after the return type, so nil is allowed to return
     override func tableView(_ tableView: UITableView,
                             willSelectRowAt indexPath: IndexPath) -> IndexPath?{
         return nil
     }
     
     
-    //UITextField delegate methods. invoked every time the user changes the text, whether by tapping on the keyboard or by cut/paste.
+    //For user friendly: UITextField delegate methods
+    //invoked every time the user changes the text, whether by tapping on the keyboard or by cut/paste.
     func textField(_ textField: UITextField,
                    shouldChangeCharactersIn range: NSRange,
                    replacementString string: String) -> Bool {
@@ -85,10 +89,6 @@ class DueDateDetailViewController: UITableViewController, UITextFieldDelegate {
         doneBarButton.isEnabled = (newText.length > 0)
         return true
     }
-    
-    
-
-    
     
     
 }
