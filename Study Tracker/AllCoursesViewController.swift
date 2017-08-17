@@ -11,25 +11,7 @@ import UIKit
 
 class AllCoursesViewController: UITableViewController, CourseDetailViewControllerDelegate {
     
-    var courses: [Course]
-    
-    required init?(coder aDecoder: NSCoder) {
-        courses = [Course]()
-        
-        super.init(coder: aDecoder)
-        
-        var course = Course(name: "8038")
-        courses.append(course)
-        
-        course = Course(name: "7444")
-        courses.append(course)
-        
-        course = Course(name: "7436")
-        courses.append(course)
-        
-        course = Course(name: "7421")
-        courses.append(course)
-    }
+    var dataModel: DataModel! //once dataModel is given a value, it will never become nil again
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -49,18 +31,30 @@ class AllCoursesViewController: UITableViewController, CourseDetailViewControlle
     override func tableView(_ tableView: UITableView,
                             numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return courses.count
+        return dataModel.courses.count
     }
 
     override func tableView(_ tableView: UITableView,
                             cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(
             withIdentifier: "Course", for: indexPath)
-        let course = courses[indexPath.row]
+        let course = dataModel.courses[indexPath.row]
+        cell.textLabel!.text = course.name
+        cell.accessoryType = .detailDisclosureButton
+        
         
         // Configure the cell
-        configureText(for: cell, with: course)
+//        configureText(for: cell, with: course)
 
+        let count = course.countUncheckedItems()
+        if course.items.count == 0 {
+            cell.detailTextLabel!.text = "(No Items)"
+        } else if count == 0 {
+            cell.detailTextLabel!.text = "All Done!"
+        } else {
+            cell.detailTextLabel!.text = "\(count) Remaining"
+        }
+        
         return cell
     }
 
@@ -75,14 +69,14 @@ class AllCoursesViewController: UITableViewController, CourseDetailViewControlle
     override func tableView(_ tableView: UITableView,
                             commit editingStyle: UITableViewCellEditingStyle,
                             forRowAt indexPath: IndexPath) {
-        courses.remove(at: indexPath.row)
+        dataModel.courses.remove(at: indexPath.row)
         let indexPaths = [indexPath]
         tableView.deleteRows(at: indexPaths, with: .automatic)
     }
     
     override func tableView(_ tableView: UITableView,
                             didSelectRowAt indexPath: IndexPath) {
-        let course = courses[indexPath.row]
+        let course = dataModel.courses[indexPath.row]
         //send course object
         performSegue(withIdentifier: "ShowCourseDueDate", sender: course)
     }
@@ -102,7 +96,7 @@ class AllCoursesViewController: UITableViewController, CourseDetailViewControlle
             controller.delegate = self
             
             if let indexPath = tableView.indexPath( for: sender as! UITableViewCell) {
-                controller.courseToEdit = courses[indexPath.row]
+                controller.courseToEdit = dataModel.courses[indexPath.row]
             }
         }
     }
@@ -114,9 +108,9 @@ class AllCoursesViewController: UITableViewController, CourseDetailViewControlle
     
     func courseDetailViewController(_ controller: CourseDetailViewController,
                                   didFinishAdding course: Course) {
-        let newRowIndex = courses.count
-        courses.append(course)
-        
+        let newRowIndex = dataModel.courses.count
+        dataModel.courses.append(course)
+        //dataModel.saveCourseDueDates()
         let indexPath = IndexPath(row: newRowIndex, section: 0)
         let indexPaths = [indexPath]
         tableView.insertRows(at: indexPaths, with: .automatic)
@@ -126,13 +120,18 @@ class AllCoursesViewController: UITableViewController, CourseDetailViewControlle
     
     func courseDetailViewController(_ controller: CourseDetailViewController,
                                   didFinishEditing course: Course) {
-        if let index = courses.index(of: course) {
+        if let index = dataModel.courses.index(of: course) {
             let indexPath = IndexPath(row: index, section: 0)
             if let cell = tableView.cellForRow(at: indexPath) {
-                configureText(for: cell, with: course)
+                cell.textLabel!.text = course.name
             }
         }
         dismiss(animated: true, completion: nil)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        tableView.reloadData()
     }
 
 }

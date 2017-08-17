@@ -10,6 +10,7 @@
 		215005271ED6CC9600FCEBE6 /* AllCoursesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 215005261ED6CC9600FCEBE6 /* AllCoursesViewController.swift */; };
 		215005291ED6E35E00FCEBE6 /* Course.swift in Sources */ = {isa = PBXBuildFile; fileRef = 215005281ED6E35E00FCEBE6 /* Course.swift */; };
 		2150052B1ED7D45A00FCEBE6 /* CourseDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2150052A1ED7D45900FCEBE6 /* CourseDetailViewController.swift */; };
+		2150052D1ED8EDBF00FCEBE6 /* DataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2150052C1ED8EDBF00FCEBE6 /* DataModel.swift */; };
 		21AD3B651ED287A800EF0C91 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21AD3B641ED287A800EF0C91 /* AppDelegate.swift */; };
 		21AD3B6A1ED287A800EF0C91 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 21AD3B681ED287A800EF0C91 /* Main.storyboard */; };
 		21AD3B6D1ED287A800EF0C91 /* Study_Tracker.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 21AD3B6B1ED287A800EF0C91 /* Study_Tracker.xcdatamodeld */; };
@@ -24,6 +25,7 @@
 		215005261ED6CC9600FCEBE6 /* AllCoursesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AllCoursesViewController.swift; sourceTree = "<group>"; };
 		215005281ED6E35E00FCEBE6 /* Course.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Course.swift; sourceTree = "<group>"; };
 		2150052A1ED7D45900FCEBE6 /* CourseDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CourseDetailViewController.swift; sourceTree = "<group>"; };
+		2150052C1ED8EDBF00FCEBE6 /* DataModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataModel.swift; sourceTree = "<group>"; };
 		21AD3B611ED287A800EF0C91 /* Study Tracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Study Tracker.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		21AD3B641ED287A800EF0C91 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		21AD3B691ED287A800EF0C91 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -78,6 +80,7 @@
 				215005261ED6CC9600FCEBE6 /* AllCoursesViewController.swift */,
 				215005281ED6E35E00FCEBE6 /* Course.swift */,
 				2150052A1ED7D45900FCEBE6 /* CourseDetailViewController.swift */,
+				2150052C1ED8EDBF00FCEBE6 /* DataModel.swift */,
 			);
 			path = "Study Tracker";
 			sourceTree = "<group>";
@@ -162,6 +165,7 @@
 				21AD3B651ED287A800EF0C91 /* AppDelegate.swift in Sources */,
 				21AD3B7C1ED3A32E00EF0C91 /* ChecklistItem.swift in Sources */,
 				215005271ED6CC9600FCEBE6 /* AllCoursesViewController.swift in Sources */,
+				2150052D1ED8EDBF00FCEBE6 /* DataModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

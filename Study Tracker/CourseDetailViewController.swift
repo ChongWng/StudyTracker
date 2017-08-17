@@ -1,5 +1,6 @@
 //
 //  CourseDetailViewController.swift
+//  View for adding and editing courses
 //  Study Tracker
 //
 //  Created by wang on 26/05/17.
